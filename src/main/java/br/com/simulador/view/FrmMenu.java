@@ -4,7 +4,13 @@
  */
 package br.com.simulador.view;
 
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
  * Menu principal
@@ -26,7 +32,6 @@ public class FrmMenu extends javax.swing.JFrame {
 	private void initComponents() {
 
 		jPanel1 = new javax.swing.JPanel();
-		jPanel2 = new javax.swing.JPanel();
 		jLabel1 = new javax.swing.JLabel();
 		btnSituacaoAnual = new javax.swing.JButton();
 		btnSemestre = new javax.swing.JButton();
@@ -39,26 +44,15 @@ public class FrmMenu extends javax.swing.JFrame {
 		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
 		jPanel1.setLayout(jPanel1Layout);
 		jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		        .addGap(0, 520, Short.MAX_VALUE));
+				.addGap(0, 520, Short.MAX_VALUE));
 		jPanel1Layout.setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		        .addGap(0, 20, Short.MAX_VALUE));
+				.addGap(0, 20, Short.MAX_VALUE));
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Menu Principal");
 		setResizable(false);
 
-		jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-		jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(187, 198, 207), null));
-		jPanel2.setForeground(new java.awt.Color(255, 255, 255));
-
-		javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-		jPanel2.setLayout(jPanel2Layout);
-		jPanel2Layout.setHorizontalGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		        .addGap(0, 520, Short.MAX_VALUE));
-		jPanel2Layout.setVerticalGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		        .addGap(0, 20, Short.MAX_VALUE));
-
-		jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+		jLabel1.setFont(new Font("Segoe UI Light", Font.BOLD, 35)); // NOI18N
 		jLabel1.setText("Expositor");
 
 		btnSituacaoAnual.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -69,49 +63,41 @@ public class FrmMenu extends javax.swing.JFrame {
 			}
 		});
 
-		btnSemestre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+		btnSemestre.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
 		btnSemestre.setText("Semestre");
 		btnSemestre.addActionListener(event -> brnSituacaoSemestralActionPerformed(event));
 
-		btnExame.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+		btnExame.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
 		btnExame.setText("Exame");
 		btnExame.addActionListener(event -> btnSituacaoExameActionPerformed(event));
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+		layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addContainerGap()
+						.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+								.addGroup(layout.createSequentialGroup().addComponent(jLabel1).addGap(156))
+								.addGroup(layout.createSequentialGroup()
+										.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+												.addComponent(btnExame, Alignment.LEADING, GroupLayout.DEFAULT_SIZE,
+														455, Short.MAX_VALUE)
+										.addComponent(btnSemestre, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 455,
+												Short.MAX_VALUE)
+										.addComponent(btnSituacaoAnual, GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
+								.addContainerGap()))));
+		layout.setVerticalGroup(
+				layout.createParallelGroup(Alignment.TRAILING)
+						.addGroup(layout.createSequentialGroup().addContainerGap(38, Short.MAX_VALUE)
+								.addComponent(jLabel1).addGap(31)
+								.addComponent(btnSituacaoAnual, GroupLayout.PREFERRED_SIZE, 63,
+										GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addComponent(btnSemestre, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(ComponentPlacement.UNRELATED)
+								.addComponent(btnExame, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+								.addContainerGap()));
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE,
-		                Short.MAX_VALUE)
-		        .addGroup(layout.createSequentialGroup().addGroup(layout
-		                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		                .addGroup(layout.createSequentialGroup().addGap(209, 209, 209).addComponent(jLabel1))
-		                .addGroup(layout.createSequentialGroup().addGap(76, 76, 76).addGroup(layout
-		                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-		                        .addGroup(layout.createSequentialGroup()
-		                                .addComponent(btnSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, 180,
-		                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-		                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-		                                .addComponent(btnExame, javax.swing.GroupLayout.PREFERRED_SIZE, 180,
-		                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-		                        .addComponent(btnSituacaoAnual, javax.swing.GroupLayout.PREFERRED_SIZE, 372,
-		                                javax.swing.GroupLayout.PREFERRED_SIZE))))
-		                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		        .addGroup(layout.createSequentialGroup()
-		                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE,
-		                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-		                .addGap(29, 29, 29).addComponent(jLabel1).addGap(32, 32, 32)
-		                .addComponent(btnSituacaoAnual, javax.swing.GroupLayout.PREFERRED_SIZE, 63,
-		                        javax.swing.GroupLayout.PREFERRED_SIZE)
-		        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-		        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		                .addComponent(btnSemestre, javax.swing.GroupLayout.PREFERRED_SIZE, 65,
-		                        javax.swing.GroupLayout.PREFERRED_SIZE)
-		                .addComponent(btnExame, javax.swing.GroupLayout.PREFERRED_SIZE, 65,
-		                        javax.swing.GroupLayout.PREFERRED_SIZE))
-		                .addGap(0, 76, Short.MAX_VALUE)));
 
-		setSize(new java.awt.Dimension(540, 370));
+		setSize(new Dimension(481, 370));
 		setLocationRelativeTo(null);
 	}
 
@@ -143,5 +129,4 @@ public class FrmMenu extends javax.swing.JFrame {
 	private javax.swing.JButton btnSituacaoAnual;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JPanel jPanel1;
-	private javax.swing.JPanel jPanel2;
 }
