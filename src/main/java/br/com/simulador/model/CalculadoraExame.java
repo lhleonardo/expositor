@@ -1,5 +1,11 @@
 package br.com.simulador.model;
 
+/**
+ * Calculadora responsável pela classificação do aluno pela nota de exame.
+ * 
+ * @author Leonardo Braz e João Victor
+ *
+ */
 public class CalculadoraExame extends Calculadora {
 
 	private Double notaAnual;
@@ -16,6 +22,9 @@ public class CalculadoraExame extends Calculadora {
 		this.notaAnual = notaAnual;
 	}
 
+	/**
+	 * Fórmula -> Média = ((notaAnual * 6) + (notaExame * 4)) / 10
+	 */
 	@Override
 	protected double calcula() {
 		return ((notaAnual * 6) + (notaExame * 4)) / 10;
@@ -26,6 +35,12 @@ public class CalculadoraExame extends Calculadora {
 		return calcula() >= 50;
 	}
 
+	/**
+	 * Método responsável por calcular a nota necessária para o aluno tirar no exame, calculando em
+	 * cima de sua nota anual.
+	 * 
+	 * @return nota necessária
+	 */
 	public double valorQueFaltouParaPassar() {
 		return 50 - calcula();
 	}
@@ -34,14 +49,6 @@ public class CalculadoraExame extends Calculadora {
 	protected double calculaValorNecessario() {
 		double resultado = (500 - (notaAnual * 6)) / 4;
 		return resultado < 0 ? resultado * -1 : resultado;
-	}
-
-	public static void main(String[] args) {
-		CalculadoraExame exame = new CalculadoraExame(20.0, 9.0);
-		System.out.println("Aprovado? " + exame.isAprovado());
-		if (!exame.isAprovado()) {
-			System.out.println("Valor que faltou: " + exame.valorQueFaltouParaPassar());
-		}
 	}
 
 }

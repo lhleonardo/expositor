@@ -1,10 +1,29 @@
 package br.com.simulador.model;
 
+/**
+ * Calculadora de notas anuais, tomando base em suas quatro notas anuais (podendo ser chamadas de
+ * bimestres ou etapas).
+ * 
+ * 
+ * @author Leonardo e João Victor
+ *
+ */
 public class CalculadoraAnual extends Calculadora {
+	/**
+	 * O cálculo é efetuado a partir das quatro notas informadas pelo usuário. Elas devem ser
+	 * informadas cronologicamente.
+	 * 
+	 * A partir desses valores, é feita a somatória e uma verificação, para saber se a média foi
+	 * atingida.
+	 */
 
+	// Nota do primeiro bimestre
 	private Double nota1;
+	// Nota do segundo bimestre
 	private Double nota2;
+	// Nota do terceiro bimestre
 	private Double nota3;
+	// Nota do quarto bimestre
 	private Double nota4;
 
 	@Override
@@ -12,6 +31,9 @@ public class CalculadoraAnual extends Calculadora {
 		return (nota1 + nota2 + nota3 + (nota4 == null ? 0 : nota4));
 	}
 
+	/**
+	 * Caso a nota tenha atingido 240 pontos, o aluno conseguiu aprovação.
+	 */
 	@Override
 	public boolean isAprovado() {
 		return calcula() >= 240;
@@ -26,15 +48,6 @@ public class CalculadoraAnual extends Calculadora {
 
 	public CalculadoraAnual(Double nota1, Double nota2, Double nota3) {
 		this(nota1, nota2, nota3, null);
-	}
-
-	public static void main(String[] args) {
-		CalculadoraAnual anual = new CalculadoraAnual(50.0, 50.9, 50.0);
-		System.out.println("Média: " + anual.getMedia());
-		System.out.println("Situação: " + (anual.isAprovado() ? "APROVADO" : "REPROVADO"));
-		if (!anual.isAprovado()) {
-			System.out.println("Valor necessário: " + anual.getValorNecessario());
-		}
 	}
 
 	@Override
