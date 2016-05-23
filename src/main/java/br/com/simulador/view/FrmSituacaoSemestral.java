@@ -1,18 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties. To change
- * this template file, choose Tools | Templates and open the template in the editor.
- */
 package br.com.simulador.view;
 
+import javax.swing.JTextField;
+
 import br.com.simulador.model.CalculadoraSemestral;
+import util.Mensagem;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Font;
+import javax.swing.JButton;
+import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FrmSituacaoSemestral extends javax.swing.JDialog {
 
 	private static final long serialVersionUID = 1L;
+	private Mensagem mensagem;
 
 	public FrmSituacaoSemestral(java.awt.Frame parent, boolean modal) {
 		super(parent, modal);
 		initComponents();
+		this.mensagem = new Mensagem("Situação Semestral", this);
 	}
 
 	private void initComponents() {
@@ -20,7 +29,6 @@ public class FrmSituacaoSemestral extends javax.swing.JDialog {
 		jLabel2 = new javax.swing.JLabel();
 		txtNota1 = new javax.swing.JTextField();
 		txtNota2 = new javax.swing.JTextField();
-		jPanel1 = new javax.swing.JPanel();
 		btnCalcular = new javax.swing.JButton();
 		jLabel3 = new javax.swing.JLabel();
 		jScrollPane1 = new javax.swing.JScrollPane();
@@ -30,125 +38,128 @@ public class FrmSituacaoSemestral extends javax.swing.JDialog {
 		setTitle("Situação Semestral");
 		setResizable(false);
 
-		jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+		jLabel1.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		jLabel1.setText("Nota 1");
 
-		jLabel2.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+		jLabel2.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		jLabel2.setText("Nota 2");
 
-		txtNota1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+		txtNota1.setFont(new java.awt.Font("Segoe UI", 0, 14));
 		txtNota1.setToolTipText("");
 
-		txtNota2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+		txtNota2.setFont(new java.awt.Font("Segoe UI", 0, 14));
 
-		jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-		jPanel1.setBorder(
-		        javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(187, 198, 207), null));
-		jPanel1.setForeground(new java.awt.Color(255, 255, 255));
-
-		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-		jPanel1.setLayout(jPanel1Layout);
-		jPanel1Layout.setHorizontalGroup(
-		        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0,
-		                Short.MAX_VALUE));
-		jPanel1Layout
-		        .setVerticalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		                .addGap(0, 20, Short.MAX_VALUE));
-
-		btnCalcular.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+		btnCalcular.setFont(new Font("Segoe UI", Font.BOLD, 14));
 		btnCalcular.setText("Calcular");
-		btnCalcular.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				btnCalcularActionPerformed(evt);
-			}
-		});
+		btnCalcular.addActionListener(evt -> btnCalcularActionPerformed(evt));
 
-		jLabel3.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+		jLabel3.setFont(new Font("Segoe UI", Font.PLAIN, 14));
 		jLabel3.setText("Resultado da Consulta");
 
 		txtSaida.setEditable(false);
 		txtSaida.setColumns(20);
-		txtSaida.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+		txtSaida.setFont(new java.awt.Font("Segoe UI", 0, 14));
 		txtSaida.setLineWrap(true);
 		txtSaida.setRows(5);
 		jScrollPane1.setViewportView(txtSaida);
+		
+		btnLimparCampos = new JButton();
+		btnLimparCampos.addActionListener(evento -> btnLimparCamposActionPerformed());
+		btnLimparCampos.setText("Limpar campos");
+		btnLimparCampos.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+		layout.setHorizontalGroup(
+			layout.createParallelGroup(Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(jLabel3)
+					.addContainerGap())
+				.addGroup(layout.createSequentialGroup()
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 496, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+				.addGroup(layout.createSequentialGroup()
+					.addGap(193)
+					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+						.addComponent(jLabel2, Alignment.TRAILING)
+						.addComponent(jLabel1, Alignment.TRAILING))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(txtNota1)
+						.addComponent(txtNota2, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(197, Short.MAX_VALUE))
+				.addGroup(layout.createSequentialGroup()
+					.addGap(121)
+					.addComponent(btnCalcular, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(btnLimparCampos)
+					.addContainerGap(120, Short.MAX_VALUE))
+		);
+		layout.setVerticalGroup(
+			layout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(layout.createSequentialGroup()
+					.addGap(19)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtNota1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(jLabel1))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtNota2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(jLabel2))
+					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnCalcular, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnLimparCampos, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
+					.addGap(27)
+					.addComponent(jLabel3)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-		                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-		        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-		                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-		                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-		                        .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 130,
-		                                javax.swing.GroupLayout.PREFERRED_SIZE)
-		                        .addGroup(layout.createSequentialGroup().addGroup(layout
-		                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-		                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-		                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-		                                .addGroup(layout
-		                                        .createParallelGroup(
-		                                                javax.swing.GroupLayout.Alignment.LEADING, false)
-		                                        .addComponent(txtNota2, javax.swing.GroupLayout.DEFAULT_SIZE,
-		                                                80, Short.MAX_VALUE)
-		                                        .addComponent(txtNota1))))
-		                .addGap(211, 211, 211))
-		        .addGroup(layout.createSequentialGroup().addGap(49, 49, 49)
-		                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		                        .addComponent(jLabel3).addComponent(jScrollPane1,
-		                                javax.swing.GroupLayout.PREFERRED_SIZE, 436,
-		                                javax.swing.GroupLayout.PREFERRED_SIZE))
-		                .addContainerGap(39, Short.MAX_VALUE)));
-		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-		        .addGroup(layout.createSequentialGroup()
-		                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
-		                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-		                .addGap(29, 29, 29)
-		                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-		                        .addComponent(txtNota1, javax.swing.GroupLayout.PREFERRED_SIZE,
-		                                javax.swing.GroupLayout.DEFAULT_SIZE,
-		                                javax.swing.GroupLayout.PREFERRED_SIZE)
-		                        .addComponent(jLabel1))
-		                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-		                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-		                        .addComponent(txtNota2, javax.swing.GroupLayout.PREFERRED_SIZE,
-		                                javax.swing.GroupLayout.DEFAULT_SIZE,
-		                                javax.swing.GroupLayout.PREFERRED_SIZE)
-		                        .addComponent(jLabel2))
-		                .addGap(18, 18, 18)
-		                .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 39,
-		                        javax.swing.GroupLayout.PREFERRED_SIZE)
-		                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37,
-		                        Short.MAX_VALUE)
-		                .addComponent(jLabel3)
-		                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-		                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85,
-		                        javax.swing.GroupLayout.PREFERRED_SIZE)
-		                .addContainerGap()));
 
-		setSize(new java.awt.Dimension(540, 370));
+		setSize(new Dimension(518, 335));
 		setLocationRelativeTo(null);
 	}
 
-	private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCalcularActionPerformed
-		CalculadoraSemestral semestral = new CalculadoraSemestral(pegaValor(txtNota1.getText()),
-		        pegaValor(txtNota2.getText()));
-		StringBuilder builder = montaBuilder(semestral);
 
-		txtSaida.setText(null);
-		txtSaida.setText(builder.toString());
+	private void btnLimparCamposActionPerformed() {
+		txtNota1.setText("");
+		txtNota2.setText("");
 	}
 
-	private StringBuilder montaBuilder(CalculadoraSemestral semestral) {
+	private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {
+		try {
+			if (preenchimentoCorreto()) {
+				CalculadoraSemestral semestral = new CalculadoraSemestral(pegaValor(txtNota1.getText()),
+						pegaValor(txtNota2.getText()));
+
+				txtSaida.setText(montaBuilder(semestral));
+			} else {
+				mensagem.erroPreenchimentoInvalido();
+			}
+		} catch (NumberFormatException ex) {
+			mensagem.erroLetraAoInvesDeNumero();
+		}
+	}
+
+	private boolean preenchimentoCorreto() {
+		return campoPreenchido(txtNota1) || campoPreenchido(txtNota2);
+	}
+
+	private boolean campoPreenchido(JTextField txt) {
+		return !txt.getText().isEmpty();
+	}
+
+	private String montaBuilder(CalculadoraSemestral semestral) {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Média: " + semestral.getMedia());
 		builder.append("\nSituação: " + (semestral.isAprovado() ? "APROVADO" : "REPROVADO"));
 		if (!semestral.isAprovado()) {
 			builder.append("\nValor necessário para aprovação: " + semestral.getValorNecessario());
 		}
-		return builder;
+		return builder.toString();
 	}
 
 	private double pegaValor(String valor) {
@@ -164,9 +175,9 @@ public class FrmSituacaoSemestral extends javax.swing.JDialog {
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JLabel jLabel2;
 	private javax.swing.JLabel jLabel3;
-	private javax.swing.JPanel jPanel1;
 	private javax.swing.JScrollPane jScrollPane1;
 	private javax.swing.JTextField txtNota1;
 	private javax.swing.JTextField txtNota2;
 	private javax.swing.JTextArea txtSaida;
+	private JButton btnLimparCampos;
 }
