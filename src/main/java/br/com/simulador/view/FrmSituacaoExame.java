@@ -1,16 +1,16 @@
 package br.com.simulador.view;
 
-import br.com.simulador.model.CalculadoraExame;
-import util.Mensagem;
-
+import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.GroupLayout.Alignment;
+
 import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
-import java.awt.Dimension;
+import br.com.simulador.model.CalculadoraExame;
+import br.com.simulador.util.Mensagem;
 
 public class FrmSituacaoExame extends javax.swing.JDialog {
 
@@ -69,42 +69,42 @@ public class FrmSituacaoExame extends javax.swing.JDialog {
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		layout.setHorizontalGroup(layout.createParallelGroup(Alignment.TRAILING).addGroup(layout.createSequentialGroup()
-				.addGroup(layout.createParallelGroup(Alignment.LEADING).addGroup(layout.createSequentialGroup()
-						.addGap(131)
-						.addGroup(layout.createParallelGroup(Alignment.LEADING)
-								.addGroup(layout.createSequentialGroup()
-										.addComponent(btnCalcular, GroupLayout.PREFERRED_SIZE, 130,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED).addComponent(btnLimparCampos))
-								.addGroup(layout.createSequentialGroup().addGap(72)
-										.addGroup(layout.createParallelGroup(Alignment.LEADING)
-												.addComponent(jLabel1, Alignment.TRAILING)
-												.addComponent(jLabel2, Alignment.TRAILING))
-										.addPreferredGap(ComponentPlacement.RELATED)
-										.addGroup(layout.createParallelGroup(Alignment.LEADING)
-												.addComponent(txtNota, GroupLayout.PREFERRED_SIZE, 80,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(txtExame, GroupLayout.PREFERRED_SIZE, 80,
-														GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(ComponentPlacement.RELATED, 205, GroupLayout.PREFERRED_SIZE))))
-						.addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jLabel3))
-						.addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jScrollPane1,
-								GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))
-				.addContainerGap()));
+		        .addGroup(layout.createParallelGroup(Alignment.LEADING).addGroup(layout.createSequentialGroup()
+		                .addGap(131)
+		                .addGroup(layout.createParallelGroup(Alignment.LEADING)
+		                        .addGroup(layout.createSequentialGroup()
+		                                .addComponent(btnCalcular, GroupLayout.PREFERRED_SIZE, 130,
+		                                        GroupLayout.PREFERRED_SIZE)
+		                                .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnLimparCampos))
+		                        .addGroup(layout.createSequentialGroup().addGap(72)
+		                                .addGroup(layout.createParallelGroup(Alignment.LEADING)
+		                                        .addComponent(jLabel1, Alignment.TRAILING)
+		                                        .addComponent(jLabel2, Alignment.TRAILING))
+		                                .addPreferredGap(ComponentPlacement.RELATED)
+		                                .addGroup(layout.createParallelGroup(Alignment.LEADING)
+		                                        .addComponent(txtNota, GroupLayout.PREFERRED_SIZE, 80,
+		                                                GroupLayout.PREFERRED_SIZE)
+		                                        .addComponent(txtExame, GroupLayout.PREFERRED_SIZE, 80,
+		                                                GroupLayout.PREFERRED_SIZE))
+		                                .addPreferredGap(ComponentPlacement.RELATED, 205, GroupLayout.PREFERRED_SIZE))))
+		                .addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jLabel3))
+		                .addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jScrollPane1,
+		                        GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))
+		        .addContainerGap()));
 		layout.setVerticalGroup(layout.createParallelGroup(Alignment.LEADING).addGroup(layout.createSequentialGroup()
-				.addGap(21)
-				.addGroup(layout.createParallelGroup(Alignment.BASELINE).addComponent(jLabel1).addComponent(txtNota,
-						GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.UNRELATED)
-				.addGroup(layout.createParallelGroup(Alignment.BASELINE).addComponent(jLabel2).addComponent(txtExame,
-						GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-				.addGap(18)
-				.addGroup(layout.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnCalcular, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnLimparCampos, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-				.addPreferredGap(ComponentPlacement.UNRELATED).addComponent(jLabel3)
-				.addPreferredGap(ComponentPlacement.RELATED)
-				.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE).addContainerGap()));
+		        .addGap(21)
+		        .addGroup(layout.createParallelGroup(Alignment.BASELINE).addComponent(jLabel1).addComponent(txtNota,
+		                GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+		        .addPreferredGap(ComponentPlacement.UNRELATED)
+		        .addGroup(layout.createParallelGroup(Alignment.BASELINE).addComponent(jLabel2).addComponent(txtExame,
+		                GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+		        .addGap(18)
+		        .addGroup(layout.createParallelGroup(Alignment.LEADING)
+		                .addComponent(btnCalcular, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+		                .addComponent(btnLimparCampos, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
+		        .addPreferredGap(ComponentPlacement.UNRELATED).addComponent(jLabel3)
+		        .addPreferredGap(ComponentPlacement.RELATED)
+		        .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE).addContainerGap()));
 		getContentPane().setLayout(layout);
 
 		setSize(new Dimension(540, 343));
@@ -122,7 +122,7 @@ public class FrmSituacaoExame extends javax.swing.JDialog {
 		try {
 			if (preenchimentoCorreto()) {
 				CalculadoraExame exame = new CalculadoraExame(pegaValor(txtNota.getText()),
-						pegaValor(txtExame.getText()));
+				        pegaValor(txtExame.getText()));
 
 				txtSaida.setText(montaBuilder(exame));
 			} else {

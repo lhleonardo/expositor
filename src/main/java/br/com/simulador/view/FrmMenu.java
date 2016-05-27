@@ -57,11 +57,7 @@ public class FrmMenu extends javax.swing.JFrame {
 
 		btnSituacaoAnual.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 		btnSituacaoAnual.setText("Situação Anual");
-		btnSituacaoAnual.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				btnSituacaoAnualActionPerformed(evt);
-			}
-		});
+		btnSituacaoAnual.addActionListener(evt -> btnSituacaoAnualActionPerformed(evt));
 
 		btnSemestre.setFont(new Font("Segoe UI", Font.PLAIN, 18)); // NOI18N
 		btnSemestre.setText("Semestre");

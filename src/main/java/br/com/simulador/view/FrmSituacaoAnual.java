@@ -1,20 +1,21 @@
 package br.com.simulador.view;
 
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import br.com.simulador.model.Calculadora;
 import br.com.simulador.model.CalculadoraAnual;
-import util.Mensagem;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.GroupLayout;
-import java.awt.Font;
-import java.awt.Dimension;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import br.com.simulador.util.Mensagem;
 
 /**
  *
@@ -68,6 +69,7 @@ public class FrmSituacaoAnual extends javax.swing.JDialog {
 		txtQuartoB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
 		btnCalcular.setFont(new Font("Segoe UI", Font.BOLD, 14)); // NOI18N
+
 		btnCalcular.addActionListener(listener -> btnCalcularActionPerformed(listener));
 		btnCalcular.setText("Calcular");
 
@@ -82,16 +84,16 @@ public class FrmSituacaoAnual extends javax.swing.JDialog {
 		jLabel5.setText("Resultado da Consulta");
 
 		JButton btnLimparCampos = new JButton();
-		btnLimparCampos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				txtPrimeiroB.setText("");
-				txtSegundoB.setText("");
-				txtTerceiroB.setText("");
-				txtQuartoB.setText("");
-				txtSaida.setText("");
-				txtPrimeiroB.requestFocus();
-			}
+
+		btnLimparCampos.addActionListener(evt -> {
+			txtPrimeiroB.setText("");
+			txtSegundoB.setText("");
+			txtTerceiroB.setText("");
+			txtQuartoB.setText("");
+			txtSaida.setText("");
+			txtPrimeiroB.requestFocus();
 		});
+		
 		btnLimparCampos.setText("Limpar Campos");
 		btnLimparCampos.setFont(new Font("Segoe UI", Font.BOLD, 14));
 

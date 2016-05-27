@@ -1,17 +1,16 @@
 package br.com.simulador.view;
 
+import java.awt.Dimension;
+import java.awt.Font;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 import br.com.simulador.model.CalculadoraSemestral;
-import util.Mensagem;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.Font;
-import javax.swing.JButton;
-import java.awt.Dimension;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import br.com.simulador.util.Mensagem;
 
 public class FrmSituacaoSemestral extends javax.swing.JDialog {
 
