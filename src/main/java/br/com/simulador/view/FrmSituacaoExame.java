@@ -2,6 +2,7 @@ package br.com.simulador.view;
 
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -118,7 +119,7 @@ public class FrmSituacaoExame extends javax.swing.JDialog {
 		txtNota.requestFocus();
 	}
 
-	private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {
+	private void btnCalcularActionPerformed(ActionEvent evt) {
 		try {
 			if (preenchimentoCorreto()) {
 				CalculadoraExame exame = new CalculadoraExame(pegaValor(txtNota.getText()),
@@ -136,7 +137,6 @@ public class FrmSituacaoExame extends javax.swing.JDialog {
 	}
 
 	private boolean preenchimentoCorreto() {
-
 		if (campoPreenchido(txtExame) && campoPreenchido(txtNota))
 			return true;
 		if (campoPreenchido(txtNota) && !campoPreenchido(txtExame))
@@ -162,9 +162,10 @@ public class FrmSituacaoExame extends javax.swing.JDialog {
 			if (!exame.isAprovado()) {
 				double valorNecessario = txtExame.getText().isEmpty() ? exame.getValorNecessario()
 				        : (exame.getValorNecessario() - pegaValor(txtExame.getText()));
-				builder.append(String.format("\nValor necessário para aprovação: %.2f", valorNecessario));
+				builder.append(String.format("\nValor necessário para aprovação: %.2f", 
+						valorNecessario));
 			}
-		} else { 
+		} else {
 			builder.append("Não é necessário realizar o exame.\n");
 			builder.append("A nota para aprovação foi atingida.\n");
 			builder.append("Nota: " + notaAnual);

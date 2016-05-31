@@ -97,7 +97,7 @@ public class FrmMenu extends javax.swing.JFrame {
 		setLocationRelativeTo(null);
 	}
 
-	private void btnSituacaoAnualActionPerformed(java.awt.event.ActionEvent evt) {
+	private void btnSituacaoAnualActionPerformed(ActionEvent evt) {
 		FrmSituacaoAnual anual = new FrmSituacaoAnual(this, true);
 		anual.setVisible(true);
 	}
