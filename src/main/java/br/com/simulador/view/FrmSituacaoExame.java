@@ -153,16 +153,21 @@ public class FrmSituacaoExame extends javax.swing.JDialog {
 		return valor.isEmpty() ? 0.0 : Double.parseDouble(valor);
 	}
 
-	public static void main(String args[]) {
-		new FrmSituacaoExame(null, true).setVisible(true);
-	}
-
 	private String montaBuilder(CalculadoraExame exame) {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Média: " + exame.getMedia());
-		builder.append("\nSituação: " + (exame.isAprovado() ? "APROVADO" : "REPROVADO"));
-		if (!exame.isAprovado()) {
-			builder.append("\nValor necessário para aprovação: " + exame.getValorNecessario());
+		double notaAnual = pegaValor(txtNota.getText());
+		if (notaAnual < 60) {
+			builder.append("Média: " + exame.getMedia());
+			builder.append("\nSituação: " + (exame.isAprovado() ? "APROVADO" : "REPROVADO"));
+			if (!exame.isAprovado()) {
+				double valorNecessario = txtExame.getText().isEmpty() ? exame.getValorNecessario()
+				        : (exame.getValorNecessario() - pegaValor(txtExame.getText()));
+				builder.append(String.format("\nValor necessário para aprovação: %.2f", valorNecessario));
+			}
+		} else { 
+			builder.append("Não é necessário realizar o exame.\n");
+			builder.append("A nota para aprovação foi atingida.\n");
+			builder.append("Nota: " + notaAnual);
 		}
 		return builder.toString();
 	}

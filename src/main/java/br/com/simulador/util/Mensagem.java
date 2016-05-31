@@ -34,12 +34,12 @@ public class Mensagem {
 	}
 
 	public void erroPreenchimentoInvalido() {
-		this.erro("Informe todos os campos necessários.\n\nEsquema de utilização: Informe todas as notas para saber "
-		        + "seu status de aprovação\n\nPara saber a nota que precisa tirar para aprovação, "
-		        + "preencha as notas presentes, exceto a nota faltante. ");
+		this.erro("Informe todos os campos necessários.\n\nEsquema de "
+		        + "utilização: Informe todas as notas para saber " + "seu status de aprovação\n\nPara saber a nota que "
+		        + "precisa tirar para aprovação, " + "preencha as notas presentes, exceto a nota faltante. ");
 	}
 
 	public void erroLetraAoInvesDeNumero() {
-		this.erro("Você provavelmente informou letras nos campos de entrada.\nPor favor, informe apenas números.");
+		this.erro("Você provavelmente informou letras nos campos " + "de entrada.\nPor favor, informe apenas números.");
 	}
 }

@@ -36,7 +36,8 @@ public class CalculadoraExame extends Calculadora {
 	}
 
 	/**
-	 * Método responsável por calcular a nota necessária para o aluno tirar no exame, calculando em
+	 * Método responsável por calcular a nota necessária para o aluno tirar
+	 * no exame, calculando em
 	 * cima de sua nota anual.
 	 * 
 	 * @return nota necessária

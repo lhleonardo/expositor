@@ -10,7 +10,8 @@ package br.com.simulador.model;
 
 public abstract class Calculadora {
 	/**
-	 * método de implementação obrigatória. Sua utilização é feita na recepção da lógica correta do
+	 * método de implementação obrigatória. Sua utilização
+	 * é feita na recepção da lógica correta do
 	 * cálculo para a calculadora, variando entre implementações.
 	 * 
 	 * @return resultado do cálculo
@@ -27,23 +28,28 @@ public abstract class Calculadora {
 	}
 
 	/**
-	 * Por ser uma calculadora de simulações de notas, é comum que tenha uma nota necessária para
-	 * atingir uma determinado valor. Logo, é preciso definir a lógica desse cálculo do valor
+	 * Por ser uma calculadora de simulações de notas, é
+	 * comum que tenha uma nota necessária para
+	 * atingir uma determinado valor. Logo, é preciso definir
+	 * a lógica desse cálculo do valor
 	 * necessário.
 	 * 
-	 * @return valor necessário para atingir a média. (<code>calcula</code>)
+	 * @return valor necessário para atingir a média.
+	 *         (<code>calcula</code>)
 	 */
 	protected abstract double calculaValorNecessario();
 
 	/**
-	 * Retorno de aprovação para determinada lógica, sendo necessária a implementação.
+	 * Retorno de aprovação para determinada lógica,
+	 * sendo necessária a implementação.
 	 * 
 	 * @return status (APROVADO ou REPROVADO) [true/false]
 	 */
 	public abstract boolean isAprovado();
 
 	/**
-	 * Retorno do valor necessário, caso seja preciso, para a aprovação.
+	 * Retorno do valor necessário, caso seja preciso,
+	 * para a aprovação.
 	 * 
 	 * @return valor necessário
 	 */

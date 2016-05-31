@@ -61,78 +61,64 @@ public class FrmSituacaoSemestral extends javax.swing.JDialog {
 		txtSaida.setLineWrap(true);
 		txtSaida.setRows(5);
 		jScrollPane1.setViewportView(txtSaida);
-		
+
 		btnLimparCampos = new JButton();
 		btnLimparCampos.addActionListener(evento -> btnLimparCamposActionPerformed());
 		btnLimparCampos.setText("Limpar campos");
 		btnLimparCampos.setFont(new Font("Segoe UI", Font.BOLD, 14));
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-		layout.setHorizontalGroup(
-			layout.createParallelGroup(Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(jLabel3)
-					.addContainerGap())
-				.addGroup(layout.createSequentialGroup()
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 496, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-				.addGroup(layout.createSequentialGroup()
-					.addGap(193)
-					.addGroup(layout.createParallelGroup(Alignment.LEADING)
-						.addComponent(jLabel2, Alignment.TRAILING)
-						.addComponent(jLabel1, Alignment.TRAILING))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(txtNota1)
-						.addComponent(txtNota2, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(197, Short.MAX_VALUE))
-				.addGroup(layout.createSequentialGroup()
-					.addGap(121)
-					.addComponent(btnCalcular, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(btnLimparCampos)
-					.addContainerGap(120, Short.MAX_VALUE))
-		);
-		layout.setVerticalGroup(
-			layout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(layout.createSequentialGroup()
-					.addGap(19)
-					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtNota1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(jLabel1))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(txtNota2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(jLabel2))
-					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-					.addGroup(layout.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnCalcular, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btnLimparCampos, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-					.addGap(27)
-					.addComponent(jLabel3)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-		);
+		layout.setHorizontalGroup(layout.createParallelGroup(Alignment.LEADING)
+		        .addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jLabel3).addContainerGap())
+		        .addGroup(layout.createSequentialGroup().addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+		                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 496, GroupLayout.PREFERRED_SIZE)
+		                .addContainerGap())
+		        .addGroup(layout.createSequentialGroup().addGap(193)
+		                .addGroup(layout.createParallelGroup(Alignment.LEADING)
+		                        .addComponent(jLabel2, Alignment.TRAILING).addComponent(jLabel1, Alignment.TRAILING))
+		                .addPreferredGap(ComponentPlacement.RELATED)
+		                .addGroup(layout.createParallelGroup(Alignment.LEADING, false).addComponent(txtNota1)
+		                        .addComponent(txtNota2, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
+		                .addContainerGap(197, Short.MAX_VALUE))
+		        .addGroup(layout.createSequentialGroup().addGap(121)
+		                .addComponent(btnCalcular, GroupLayout.PREFERRED_SIZE, 130, GroupLayout.PREFERRED_SIZE)
+		                .addPreferredGap(ComponentPlacement.RELATED).addComponent(btnLimparCampos)
+		                .addContainerGap(120, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout.createParallelGroup(Alignment.TRAILING)
+		        .addGroup(layout.createSequentialGroup().addGap(19)
+		                .addGroup(layout.createParallelGroup(Alignment.BASELINE)
+		                        .addComponent(txtNota1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+		                                GroupLayout.PREFERRED_SIZE)
+		                        .addComponent(jLabel1))
+		        .addPreferredGap(ComponentPlacement.UNRELATED)
+		        .addGroup(layout.createParallelGroup(Alignment.BASELINE)
+		                .addComponent(txtNota2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+		                        GroupLayout.PREFERRED_SIZE)
+		                .addComponent(jLabel2))
+		        .addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+		        .addGroup(layout.createParallelGroup(Alignment.LEADING)
+		                .addComponent(btnCalcular, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+		                .addComponent(btnLimparCampos, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
+		        .addGap(27).addComponent(jLabel3).addPreferredGap(ComponentPlacement.RELATED)
+		        .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
+		        .addContainerGap()));
 		getContentPane().setLayout(layout);
 
 		setSize(new Dimension(518, 335));
 		setLocationRelativeTo(null);
 	}
 
-
 	private void btnLimparCamposActionPerformed() {
 		txtNota1.setText("");
 		txtNota2.setText("");
+		txtSaida.setText("");
 	}
 
 	private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {
 		try {
 			if (preenchimentoCorreto()) {
 				CalculadoraSemestral semestral = new CalculadoraSemestral(pegaValor(txtNota1.getText()),
-						pegaValor(txtNota2.getText()));
+				        pegaValor(txtNota2.getText()));
 
 				txtSaida.setText(montaBuilder(semestral));
 			} else {
@@ -154,7 +140,8 @@ public class FrmSituacaoSemestral extends javax.swing.JDialog {
 	private String montaBuilder(CalculadoraSemestral semestral) {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Média: " + semestral.getMedia());
-		builder.append("\nSituação: " + (semestral.isAprovado() ? "APROVADO" : "REPROVADO"));
+		builder.append("\nSituação: "
+		        + (semestral.isAprovado() ? "APROVADO" : txtNota2.getText().isEmpty() ? "EM ANDAMENTO" : "REPROVADO"));
 		if (!semestral.isAprovado()) {
 			builder.append("\nValor necessário para aprovação: " + semestral.getValorNecessario());
 		}
@@ -165,10 +152,6 @@ public class FrmSituacaoSemestral extends javax.swing.JDialog {
 		return valor.isEmpty() ? 0.0 : Double.parseDouble(valor);
 	}
 
-	public static void main(String args[]) {
-		FrmSituacaoSemestral semestral = new FrmSituacaoSemestral(null, true);
-		semestral.setVisible(true);
-	}
 
 	private javax.swing.JButton btnCalcular;
 	private javax.swing.JLabel jLabel1;

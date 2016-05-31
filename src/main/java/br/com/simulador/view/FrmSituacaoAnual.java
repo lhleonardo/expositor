@@ -2,8 +2,6 @@ package br.com.simulador.view;
 
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -173,7 +171,8 @@ public class FrmSituacaoAnual extends javax.swing.JDialog {
 				double terceiroBim = pegaValor(txtTerceiroB.getText());
 				double quartoBim = pegaValor(txtQuartoB.getText());
 
-				CalculadoraAnual anual = new CalculadoraAnual(primeiroBim, segundoBim, terceiroBim, quartoBim);
+				CalculadoraAnual anual = new CalculadoraAnual(primeiroBim, segundoBim,
+															  terceiroBim, quartoBim);
 
 				txtSaida.setText(montaBuilder(anual));
 			} else {

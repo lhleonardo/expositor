@@ -26,6 +26,17 @@ public class CalculadoraAnual extends Calculadora {
 	// Nota do quarto bimestre
 	private Double nota4;
 
+	public CalculadoraAnual(Double nota1, Double nota2, Double nota3, Double nota4) {
+		this.nota1 = nota1;
+		this.nota2 = nota2;
+		this.nota3 = nota3;
+		this.nota4 = nota4;
+	}
+
+	public CalculadoraAnual(Double nota1, Double nota2, Double nota3) {
+		this(nota1, nota2, nota3, null);
+	}
+
 	@Override
 	protected double calcula() {
 		return (nota1 + nota2 + nota3 + (nota4 == null ? 0 : nota4));
@@ -39,16 +50,6 @@ public class CalculadoraAnual extends Calculadora {
 		return calcula() >= 240;
 	}
 
-	public CalculadoraAnual(Double nota1, Double nota2, Double nota3, Double nota4) {
-		this.nota1 = nota1;
-		this.nota2 = nota2;
-		this.nota3 = nota3;
-		this.nota4 = nota4;
-	}
-
-	public CalculadoraAnual(Double nota1, Double nota2, Double nota3) {
-		this(nota1, nota2, nota3, null);
-	}
 
 	@Override
 	protected double calculaValorNecessario() {
